@@ -14,7 +14,7 @@ Você pode utilizar Redux juntamente com [React](https://facebook.github.io/reac
 
 Então, o que você está esperando?
 
-#### [Assista a 30 vídeos gratuítos sobre Redux com o seu criador!](https://egghead.io/series/getting-started-with-redux)
+#### [Assista a 30 vídeos gratuitos sobre Redux com o seu criador!](https://egghead.io/series/getting-started-with-redux)
 
 Se você gostou do curso, considere ajudar Eggehard [pagando uma inscrição](https://egghead.io/pricing). Assinantes tem acesso ao código fonte de exemplos em cada um dos vídeos, também várias outros cursos sobre outros tópicos, incluindo Javascript a fundo, React, Angular, e muito mais. Muitos [Instrutores da Egghead ](https://egghead.io/instructors) são também autores de bibliotecas open-source, então, assinando é uma boa forma de agradece-los pelo trabalho que eles tem feito.
 
