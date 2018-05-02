@@ -1,12 +1,12 @@
-# Three Principles
+# Três Princípios
 
-Redux can be described in three fundamental principles:
+Redux pode ser descrito em três princípios fundamentais:
 
-### Single source of truth
+### Única fonte de verdade
 
-**The [state](../Glossary.md#state) of your whole application is stored in an object tree within a single [store](../Glossary.md#store).**
+**O [estado](../Glossary.md#state) (state) de todo o aplicativo é armazenado em uma árvore de objetos em um único [armazenamento](../Glossary.md#store) (store).**
 
-This makes it easy to create universal apps, as the state from your server can be serialized and hydrated into the client with no extra coding effort. A single state tree also makes it easier to debug or introspect an application; it also enables you to persist your app’s state in development, for a faster development cycle. Some functionality which has been traditionally difficult to implement - Undo/Redo, for example - can suddenly become trivial to implement, if all of your state is stored in a single tree.
+Isso facilita a criação de aplicativos universais, já que o estado do servidor pode ser serializado e hidratado no cliente sem nenhum esforço extra de codificação. Uma única árvore de estado também facilita a depuração ou a introspecção de uma aplicação; Ele também permite que você persista o estado do seu aplicativo no desenvolvimento, para um ciclo de desenvolvimento mais rápido. Algumas funcionalidades que têm sido tradicionalmente difíceis de implementar - Desfazer / Refazer, por exemplo - podem subitamente tornar-se triviais de implementar, se todo o seu estado estiver armazenado em uma única árvore.
 
 ```js
 console.log(store.getState())
@@ -28,11 +28,11 @@ console.log(store.getState())
 */
 ```
 
-### State is read-only
+### Estado é somente leitura
 
-**The only way to mutate the state is to emit an [action](../Glossary.md#action), an object describing what happened.**
+**A única maneira de alterar o estado é emitir uma [ação](../Glossary.md#action) (action), um objeto descrevendo o que aconteceu.**
 
-This ensures that neither the views nor the network callbacks will ever write directly to the state. Instead, they express an intent to mutate. Because all mutations are centralized and happen one by one in a strict order, there are no subtle race conditions to watch out for. As actions are just plain objects, they can be logged, serialized, stored, and later replayed for debugging or testing purposes.
+Isso garante que nem as views nem os retornos de chamada (callbacks) da rede jamais serão gravados diretamente no estado. Em vez disso, eles expressam a intenção de mudar. Como todas as mutações são centralizadas e acontecem uma a uma em uma ordem estrita, não há condições sutis de corrida a serem observadas. Como as ações são apenas objetos simples, elas podem ser registradas, serializadas, armazenadas e, posteriormente, reproduzidas para fins de depuração ou teste.
 
 ```js
 store.dispatch({
@@ -46,11 +46,11 @@ store.dispatch({
 })
 ```
 
-### Changes are made with pure functions
+### As alterações são feitas com funções puras
 
-**To specify how the state tree is transformed by actions, you write pure [reducers](../Glossary.md#reducer).**
+**Para especificar como a árvore de estados é transformada por ações, você escreve [redutores](../Glossary.md#reducer) (reducers) puros.**
 
-Reducers are just pure functions that take the previous state and an action, and return the next state. Remember to return new state objects, instead of mutating the previous state. You can start with a single reducer, and as your app grows, split it off into smaller reducers that manage specific parts of the state tree. Because reducers are just functions, you can control the order in which they are called, pass additional data, or even make reusable reducers for common tasks such as pagination.
+Redutores são apenas funções puras que tomam o estado anterior e uma ação, e retornam o próximo estado. Lembre-se de retornar objetos de novo estado, em vez de alterar o estado anterior. Você pode começar com um único reducer e, à medida que seu aplicativo cresce, divida-o em reducers menores que gerenciam partes específicas da árvore de estados. Como os redutores são apenas funções, você pode controlar a ordem na qual eles são chamados, passar dados adicionais ou até mesmo fazer reducers reutilizáveis ​​para tarefas comuns, como paginação.
 
 ```js
 
@@ -92,4 +92,4 @@ let reducer = combineReducers({ visibilityFilter, todos })
 let store = createStore(reducer)
 ```
 
-That’s it! Now you know what Redux is all about.
+É isso aí! Agora você sabe o que é Redux.
