@@ -124,5 +124,5 @@ Armazenar enhancers que sincronizam os stores do Redux nos processos do Electron
 
 ## Mais
 
-[Awesome Redux](https://github.com/xgrommx/awesome-redux) é uma extensa lista de repositórios relacionados ao Redux.
+[Awesome Redux](https://github.com/xgrommx/awesome-redux) é uma extensa lista de repositórios relacionados ao Redux.  
 [React-Redux Links](https://github.com/markerikson/react-redux-links) é uma lista selecionada de artigos, tutoriais e conteúdo relacionado de alta qualidade para React, Redux, ES6 e muito mais.
