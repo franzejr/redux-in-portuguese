@@ -1,51 +1,51 @@
-# Prior Art
+# Técnica Anterior
 
-Redux has a mixed heritage. It is similar to some patterns and technologies, but is also different from them in important ways. We’ll explore some of the similarities and the differences below.
+Redux tem uma herança mista. É semelhante a alguns padrões e tecnologias, mas também é diferente deles de maneiras importantes. Exploraremos algumas das semelhanças e as diferenças abaixo.
 
 ### Flux
 
-Can Redux be considered a [Flux](https://facebook.github.io/flux/) implementation?  
-[Yes](https://twitter.com/fisherwebdev/status/616278911886884864), and [no](https://twitter.com/andrestaltz/status/616270755605708800).
+Redux pode ser considerado uma implementação de [Flux](https://facebook.github.io/flux/) ?  
+[Sim](https://twitter.com/fisherwebdev/status/616278911886884864), e [não](https://twitter.com/andrestaltz/status/616270755605708800).
 
-(Don’t worry, [Flux creators](https://twitter.com/jingc/status/616608251463909376) [approve of it](https://twitter.com/fisherwebdev/status/616286955693682688), if that’s all you wanted to know.)
+(Não se preocupe, [os criadores do Flux](https://twitter.com/jingc/status/616608251463909376) [aprovam isso](https://twitter.com/fisherwebdev/status/616286955693682688), se isso é tudo que você queria saber.)
 
-Redux was inspired by several important qualities of Flux. Like Flux, Redux prescribes that you concentrate your model update logic in a certain layer of your application (“stores” in Flux, “reducers” in Redux). Instead of letting the application code directly mutate the data, both tell you to describe every mutation as a plain object called an “action”.
+O Redux foi inspirado por várias qualidades importantes do Flux. Como o Flux, o Redux prescreve que você concentre sua lógica de atualização de modelo em uma certa camada de sua aplicação (“stores” no Flux, “reducers” no Redux). Em vez de permitir que o código do aplicativo sofra uma mutação direta dos dados, ambos dizem para você descrever cada mutação como um objeto simples chamado de “action”.
 
-Unlike Flux, **Redux does not have the concept of a Dispatcher**. This is because it relies on pure functions instead of event emitters, and pure functions are easy to compose and don’t need an additional entity managing them. Depending on how you view Flux, you may see this as either a deviation or an implementation detail. Flux has often been [described as `(state, action) => state`](https://speakerdeck.com/jmorrell/jsconf-uy-flux-those-who-forget-the-past-dot-dot-dot-1). In this sense, Redux is true to the Flux architecture, but makes it simpler thanks to pure functions.
+Ao contrário do Flux, **o Redux não possui o conceito de um Dispatcher**. Isso ocorre porque ele depende de funções puras em vez de emissores de eventos, e funções puras são fáceis de compor e não precisam de uma entidade adicional para gerenciá-las. Dependendo de como você vê o Flux, você pode ver isso como um desvio ou um detalhe de implementação. Flux tem sido frequentemente [descrito como `(state, action) => state`](https://speakerdeck.com/jmorrell/jsconf-uy-flux-those-who-forget-the-past-dot-dot-dot-1). Nesse sentido, o Redux é fiel à arquitetura Flux, mas torna-se mais simples graças a funções puras.
 
-Another important difference from Flux is that **Redux assumes you never mutate your data**. You can use plain objects and arrays for your state just fine, but mutating them inside the reducers is strongly discouraged. You should always return a new object, which is easy with the [object spread operator proposal](../recipes/UsingObjectSpreadOperator.md), or with a library like [Immutable](https://facebook.github.io/immutable-js).
+Outra diferença importante do Flux é que **o Redux assume que você nunca muta seus dados**. Você pode usar objetos simples e arrays para o seu estado muito bem, mas mutá-los dentro dos redutores é fortemente desencorajado. Você deve sempre devolver um novo objeto, o que é fácil com a proposta do [operador de propagação de objetos](../recipes/UsingObjectSpreadOperator.md), ou com uma biblioteca como [Immutable](https://facebook.github.io/immutable-js).
 
-While it is technically *possible* to [write impure reducers](https://github.com/reactjs/redux/issues/328#issuecomment-125035516) that mutate the data for performance corner cases, we actively discourage you from doing this. Development features like time travel, record/replay, or hot reloading will break. Moreover it doesn’t seem like immutability poses performance problems in most real apps, because, as [Om](https://github.com/omcljs/om) demonstrates, even if you lose out on object allocation, you still win by avoiding expensive re-renders and re-calculations, as you know exactly what changed thanks to reducer purity.
+Embora seja tecnicamente *possível* [escrever reducers impuros](https://github.com/reactjs/redux/issues/328#issuecomment-125035516) que alterem os dados para casos de desempenho, nós ativamente desencorajamos você a fazer isso. Os recursos de desenvolvimento, como viagem no tempo, gravação/reprodução ou hot reloading serão interrompidos. Além disso, não parece que a imutabilidade apresenta problemas de desempenho na maioria dos aplicativos reais, porque, como o [Om](https://github.com/omcljs/om) demonstra, mesmo se você perder a alocação de objetos, você ainda ganha evitando re-renderizações e recálculos caros, pois você sabe exatamente o que mudou graças à pureza do reducer.
 
 ### Elm
 
-[Elm](http://elm-lang.org/) is a functional programming language inspired by Haskell and created by [Evan Czaplicki](https://twitter.com/czaplic). It enforces [a “model view update” architecture](https://github.com/evancz/elm-architecture-tutorial/), where the update has the following signature: `(action, state) => state`. Elm “updaters” serve the same purpose as reducers in Redux.
+[Elm](http://elm-lang.org/) é uma linguagem de programação funcional inspirada em Haskell e criada por [Evan Czaplicki](https://twitter.com/czaplic). Ele impõe uma [arquitetura de “model view update”](https://github.com/evancz/elm-architecture-tutorial/), na qual a atualização possui a seguinte assinatura: `(action, state) => state`. Os “atualizadores” (updaters) do Elm servem o mesmo propósito que os reducers no Redux.
 
-Unlike Redux, Elm is a language, so it is able to benefit from many things like enforced purity, static typing, out of the box immutability, and pattern matching (using the `case` expression). Even if you don’t plan to use Elm, you should read about the Elm architecture, and play with it. There is an interesting [JavaScript library playground implementing similar ideas](https://github.com/paldepind/noname-functional-frontend-framework). We should look there for inspiration on Redux! One way that we can get closer to the static typing of Elm is by [using a gradual typing solution like Flow](https://github.com/reactjs/redux/issues/290).
+Ao contrário do Redux, o Elm é uma linguagem, por isso é capaz de se beneficiar de muitas coisas como pureza forçada, tipagem estática, imutabilidade imediata e correspondência de padrão (usando a expressão `case`). Mesmo que você não planeje usar o Elm, leia a arquitetura do Elm e brinque com ela. Existe um [playground de biblioteca JavaScript interessante implementando idéias semelhantes](https://github.com/paldepind/noname-functional-frontend-framework). Devemos procurar inspiração aqui no Redux! Uma forma de nos aproximarmos da tipagem estática de Elm é [usando uma solução de digitação gradual como o Flow](https://github.com/reactjs/redux/issues/290).
 
 ### Immutable
 
-[Immutable](https://facebook.github.io/immutable-js) is a JavaScript library implementing persistent data structures. It is performant and has an idiomatic JavaScript API.
+[Immutable](https://facebook.github.io/immutable-js) é uma biblioteca JavaScript que implementa estruturas de dados persistentes. É de alto desempenho e tem uma API JavaScript idiomática.
 
-Immutable and most similar libraries are orthogonal to Redux. Feel free to use them together!
+Immutable e bibliotecas mais semelhantes são ortogonais ao Redux. Sinta-se à vontade para usá-los juntos!
 
-**Redux doesn’t care *how* you store the state—it can be a plain object, an Immutable object, or anything else.** You’ll probably want a (de)serialization mechanism for writing universal apps and hydrating their state from the server, but other than that, you can use any data storage library *as long as it supports immutability*. For example, it doesn’t make sense to use Backbone for Redux state, because Backbone models are mutable.
+**O Redux não se importa *como* você armazena o estado - pode ser um objeto simples, um objeto Immutable ou qualquer outra coisa.** Você provavelmente desejará um mecanismo de (des)serialização para criar aplicativos universais e hidratar o estado deles a partir do servidor, mas, além disso, é possível usar qualquer biblioteca de armazenamento de dados, *desde que ela ofereça suporte à imutabilidade*. Por exemplo, não faz sentido usar o Backbone para o state do Redux, porque os modelos de Backbone são mutáveis.
 
-Note that, even if your immutable library supports cursors, you shouldn’t use them in a Redux app. The whole state tree should be considered read-only, and you should use Redux for updating the state, and subscribing to the updates. Therefore writing via cursor doesn’t make sense for Redux. **If your only use case for cursors is decoupling the state tree from the UI tree and gradually refining the cursors, you should look at selectors instead.** Selectors are composable getter functions. See [reselect](http://github.com/faassen/reselect) for a really great and concise implementation of composable selectors.
+Observe que, mesmo que sua biblioteca imutável ofereça suporte a cursores, você não deve usá-los em um aplicativo do Redux. Toda a árvore de estados deve ser considerada somente leitura, e você deve usar o Redux para atualizar o estado e assinar as atualizações. Portanto, escrever via cursor não faz sentido para o Redux. **Se seu único caso de uso para cursores é separar a árvore de estados da árvore da interface do usuário e refinar gradualmente os cursores, você deve procurar os seletores.** Seletores são funções getter que podem ser compostas. Veja [reselect](http://github.com/faassen/reselect) para uma implementação realmente ótima e concisa de seletores que podem ser compostos.
 
 ### Baobab
 
-[Baobab](https://github.com/Yomguithereal/baobab) is another popular library implementing immutable API for updating plain JavaScript objects. While you can use it with Redux, there is little benefit in using them together.
+[Baobab](https://github.com/Yomguithereal/baobab) é outra biblioteca popular que implementa API imutável para atualizar objetos JavaScript simples. Embora você possa usá-lo com o Redux, há pouco benefício em usá-los juntos.
 
-Most of the functionality Baobab provides is related to updating the data with cursors, but Redux enforces that the only way to update the data is to dispatch an action. Therefore they solve the same problem differently, and don’t complement each other.
+A maior parte da funcionalidade fornecida pelo Baobab está relacionada à atualização dos dados com cursores, mas o Redux impõe que a única maneira de atualizar os dados é despachar uma ação. Portanto, eles resolvem o mesmo problema de maneira diferente e não se complementam.
 
-Unlike Immutable, Baobab doesn’t yet implement any special efficient data structures under the hood, so you don’t really win anything from using it together with Redux. It’s easier to just use plain objects in this case.
+Ao contrário do Immutable, o Baobab ainda não implementa nenhuma estrutura de dados eficiente especial, portanto, você não ganha nada mesmo usando o Redux. É mais fácil usar apenas objetos simples nesse caso.
 
 ### Rx
 
-[Reactive Extensions](https://github.com/Reactive-Extensions/RxJS) (and their undergoing [modern rewrite](https://github.com/ReactiveX/RxJS)) are a superb way to manage the complexity of asynchronous apps. In fact [there is an effort to create a library that models human-computer interaction as interdependent observables](http://cycle.js.org).
+[Reactive Extensions](https://github.com/Reactive-Extensions/RxJS) (e suas revisões [reescritas modernas](https://github.com/ReactiveX/RxJS)) são uma excelente maneira de gerenciar a complexidade dos aplicativos assíncronos. Na verdade, [há um esforço para criar uma biblioteca que modela a interação humano-computador como um observador interdependente](http://cycle.js.org).
 
-Does it make sense to use Redux together with Rx? Sure! They work great together. For example, it is easy to expose a Redux store as an observable:
+Faz sentido usar o Redux junto com o Rx? Certo! Eles trabalham muito bem juntos. Por exemplo, é fácil expor um repositório Redux como um observável:
 
 ```js
 function toObservable(store) {
@@ -59,8 +59,8 @@ function toObservable(store) {
 }
 ```
 
-Similarly, you can compose different asynchronous streams to turn them into actions before feeding them to `store.dispatch()`.
+Da mesma forma, você pode compor diferentes fluxos assíncronos para transformá-los em ações antes de supri-los para `store.dispatch()`.
 
-The question is: do you really need Redux if you already use Rx? Maybe not. It’s not hard to [re-implement Redux in Rx](https://github.com/jas-chen/rx-redux). Some say it’s a two-liner using Rx `.scan()` method. It may very well be!
+A questão é: você realmente precisa do Redux se já usa o Rx? Talvez não. Não é difícil [reimplementar o Redux no Rx](https://github.com/jas-chen/rx-redux). Alguns dizem que é um método de duas linhas usando o método Rx `.scan()`. Pode muito bem ser!
 
-If you’re in doubt, check out the Redux source code (there isn’t much going on there), as well as its ecosystem (for example, [the developer tools](https://github.com/gaearon/redux-devtools)). If you don’t care too much about it and want to go with the reactive data flow all the way, you might want to explore something like [Cycle](http://cycle.js.org) instead, or even combine it with Redux. Let us know how it goes!
+Se você estiver em dúvida, confira o código-fonte do Redux (não há muita coisa acontecendo), bem como o ecossistema (por exemplo, [as ferramentas de desenvolvedor](https://github.com/gaearon/redux-devtools)). Se você não se importar muito com isso e quiser ir com o fluxo de dados reativo até o fim, talvez queira explorar algo como o [Cycle](http://cycle.js.org), ou até combiná-lo com o Redux. Deixe-nos saber como vai!
