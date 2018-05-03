@@ -1,10 +1,10 @@
 # Examples
 
-Redux is distributed with a few examples in its [source code](https://github.com/reactjs/redux/tree/master/examples).
+Redux é distribuído com alguns exemplos em seu [código-fonte](https://github.com/reactjs/redux/tree/master/examples).
 
-## Counter Vanilla
+## Contador Vanilla
 
-Run the [Counter Vanilla](https://github.com/reactjs/redux/tree/master/examples/counter-vanilla) example:
+Rode o exemplo [Contador Vanilla](https://github.com/reactjs/redux/tree/master/examples/counter-vanilla) :
 
 ```
 git clone https://github.com/reactjs/redux.git
@@ -13,11 +13,11 @@ cd redux/examples/counter-vanilla
 open index.html
 ```
 
-It does not require a build system or a view framework and exists to show the raw Redux API used with ES5.
+Não necessita de um build de sistema ou um framework de view e existe para mostrar o Redux API puro usado com ES5.
 
-## Counter
+## Contador
 
-Run the [Counter](https://github.com/reactjs/redux/tree/master/examples/counter) example:
+Rode o exemplo [Contador](https://github.com/reactjs/redux/tree/master/examples/counter) :
 
 ```
 git clone https://github.com/reactjs/redux.git
@@ -29,13 +29,13 @@ npm start
 open http://localhost:3000/
 ```
 
-This is the most basic example of using Redux together with React. For simplicity, it re-renders the React component manually when the store changes. In real projects, you will likely want to use the highly performant [React Redux](https://github.com/reactjs/react-redux) bindings instead.
+Esse é o exemplo mais básico usando Redux junto com React. Por questão de simplicidade, re-renderiza o componente React manualmente quando o store muda. Em projetos reais, ao invés disso você provavelmente vai querer usar os bindings do altamente performático  [React Redux](https://github.com/reactjs/react-redux).
 
-This example includes tests.
+Esse exemplo inclui testes.
 
-## Todos
+## ToDos
 
-Run the [Todos](https://github.com/reactjs/redux/tree/master/examples/todos) example:
+Rode o exemplo [ToDos](https://github.com/reactjs/redux/tree/master/examples/todos) :
 
 ```
 git clone https://github.com/reactjs/redux.git
@@ -47,13 +47,13 @@ npm start
 open http://localhost:3000/
 ```
 
-This is the best example to get a deeper understanding of how the state updates work together with components in Redux. It shows how reducers can delegate handling actions to other reducers, and how you can use [React Redux](https://github.com/reactjs/react-redux) to generate container components from your presentational components.
+Este é o melhor exemplo para entender melhor como as atualizações de estado funcionam em conjunto com os componentes no Redux. Ele mostra como os reducers podem delegar ações de manipulação a outros reducers e como você pode usar o [React Redux](https://github.com/reactjs/react-redux) para gerar componentes de contêineres a partir de seus componentes de apresentação.
 
-This example includes tests.
+Este exemplo inclui testes.
 
-## Todos with Undo
+## ToDos com Desfazer
 
-Run the [Todos with Undo](https://github.com/reactjs/redux/tree/master/examples/todos-with-undo) example:
+Rode o exemplo [ToDos com Desfazer](https://github.com/reactjs/redux/tree/master/examples/todos-with-undo) :
 
 ```
 git clone https://github.com/reactjs/redux.git
@@ -65,11 +65,11 @@ npm start
 open http://localhost:3000/
 ```
 
-This is a variation on the previous example. It is almost identical, but additionally shows how wrapping your reducer with [Redux Undo](https://github.com/omnidan/redux-undo) lets you add a Undo/Redo functionality to your app with a few lines of code.
+Essa é uma variação do exemplo anterior. É quase idêntico, mas adicionalmente mostra como encapsular seu reducer com [Redux Undo](https://github.com/omnidan/redux-undo) deixa você adicionar uma funcionalidade Desfazer/Refazer à sua aplicação com algumas linhas de código.
 
-## TodoMVC
+## ToDoMVC
 
-Run the [TodoMVC](https://github.com/reactjs/redux/tree/master/examples/todomvc) example:
+Rode o exemplo [ToDoMVC](https://github.com/reactjs/redux/tree/master/examples/todomvc) :
 
 ```
 git clone https://github.com/reactjs/redux.git
@@ -81,13 +81,13 @@ npm start
 open http://localhost:3000/
 ```
 
-This is the classical [TodoMVC](http://todomvc.com/) example. It’s here for the sake of comparison, but it covers the same points as the Todos example.
+Esse é o clássico exemplo [ToDoMVC](http://todomvc.com/) . Está aqui com o propósito de comparação, mas cobre os mesmos pontos que os exemplos ToDo.
 
-This example includes tests.
+Esse exemplo inclui testes.
 
-## Shopping Cart
+## Carrinho de Compras
 
-Run the [Shopping Cart](https://github.com/reactjs/redux/tree/master/examples/shopping-cart) example:
+Rode o exemplo [Carrinho de Compras](https://github.com/reactjs/redux/tree/master/examples/shopping-cart) :
 
 ```
 git clone https://github.com/reactjs/redux.git
@@ -99,11 +99,11 @@ npm start
 open http://localhost:3000/
 ```
 
-This example shows important idiomatic Redux patterns that become important as your app grows. In particular, it shows how to store entities in a normalized way by their IDs, how to compose reducers on several levels, and how to define selectors alongside the reducers so the knowledge about the state shape is encapsulated. It also demonstrates logging with [Redux Logger](https://github.com/fcomb/redux-logger) and conditional dispatching of actions with [Redux Thunk](https://github.com/gaearon/redux-thunk) middleware.
+Esse exemplo mostra importantes padrões idiomáticos de Redux que se tornam importantes à medida que sua aplicação cresce. Em particular, mostra como armazenar entidades de maneira normalizada por seus IDs, como compôr reducers em muitos níveis, e como definir seletores ao lado dos reducers para que o conhecimento sobre a forma do estado seja encapsulado. Também demonstra logar com [Redux Logger](https://github.com/fcomb/redux-logger) e despacho condicional de ações com o middleware [Redux Thunk](https://github.com/gaearon/redux-thunk) .
 
-## Tree View
+## Visão de Árvore
 
-Run the [Tree View](https://github.com/reactjs/redux/tree/master/examples/tree-view) example:
+Rode o exemplo [Visão de Árvore](https://github.com/reactjs/redux/tree/master/examples/tree-view) :
 
 ```
 git clone https://github.com/reactjs/redux.git
@@ -115,13 +115,13 @@ npm start
 open http://localhost:3000/
 ```
 
-This example demonstrates rendering a deeply nested tree view and representing its state in a normalized form so it is easy to update from reducers. Good rendering performance is achieved by the container components granularly subscribing only to the tree nodes that they render.
+Esse exemplo mostra a rendereização de uma visão de árvore profundamente aninhada e representa seu estado em um formato normalizado para que seja fácil de atualizar a partir dos reducers. Um bom desempenho de renderização é obtido pelos componentes de contêiner que assinam granularmente apenas os nós de árvore que eles renderizam.
 
-This example includes tests.
+Esse exemplo inclui testes.
 
 ## Async
 
-Run the [Async](https://github.com/reactjs/redux/tree/master/examples/async) example:
+Rode o exemplo [Async](https://github.com/reactjs/redux/tree/master/examples/async) :
 
 ```
 git clone https://github.com/reactjs/redux.git
@@ -133,11 +133,11 @@ npm start
 open http://localhost:3000/
 ```
 
-This example includes reading from an asynchronous API, fetching data in response to user input, showing loading indicators, caching the response, and invalidating the cache. It uses [Redux Thunk](https://github.com/gaearon/redux-thunk) middleware to encapsulate asynchronous side effects.
+Este exemplo inclui a leitura de uma API assíncrona, a busca de dados em resposta à entrada do usuário, a exibição de indicadores de carregamento, o armazenamento em cache da resposta e a invalidação do cache. Ele usa o middleware [Redux Thunk](https://github.com/gaearon/redux-thunk) para encapsular efeitos colaterais assíncronos.
 
 ## Universal
 
-Run the [Universal](https://github.com/reactjs/redux/tree/master/examples/universal) example:
+Rode o exemplo [Universal](https://github.com/reactjs/redux/tree/master/examples/universal) :
 
 ```
 git clone https://github.com/reactjs/redux.git
@@ -149,11 +149,11 @@ npm start
 open http://localhost:3000/
 ```
 
-This is a basic demonstration of [server rendering](../recipes/ServerRendering.md) with Redux and React. It shows how to prepare the initial store state on the server, and pass it down to the client so the client store can boot up from an existing state.
+Essa é uma demonstração básica de [renderização no servidor](../recipes/ServerRendering.md) com Redux e React. Mostra como preparar o estado inicial do store no servidor, e passar para o cliente para que o store do cliente possa ser inicializado a partir de um estado existente.
 
-## Real World
+## Mundo Real
 
-Run the [Real World](https://github.com/reactjs/redux/tree/master/examples/real-world) example:
+Rode o exemplo [Mundo Real](https://github.com/reactjs/redux/tree/master/examples/real-world) :
 
 ```
 git clone https://github.com/reactjs/redux.git
@@ -165,8 +165,8 @@ npm start
 open http://localhost:3000/
 ```
 
-This is the most advanced example. It is dense by design. It covers keeping fetched entities in a normalized cache, implementing a custom middleware for API calls, rendering partially loaded data, pagination, caching responses, displaying error messages, and routing. Additionally, it includes Redux DevTools.
+Este é o exemplo mais avançado. É denso por design. Ele cobre a manutenção de entidades buscadas em um cache normalizado, implementando um middleware personalizado para chamadas de API, renderizando dados parcialmente carregados, paginação, respostas de armazenamento em cache, exibindo mensagens de erro e roteamento. Além disso, inclui Redux DevTools.
 
-## More Examples
+## Mais exemplos
 
-You can find more examples in [Awesome Redux](https://github.com/xgrommx/awesome-redux).
+Você pode encontrar mais exemplos em [Awesome Redux](https://github.com/xgrommx/awesome-redux).
