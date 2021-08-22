@@ -10,7 +10,7 @@ Você pode utilizar Redux juntamente com [React](https://facebook.github.io/reac
 
 ### Aprenda Redux com o seu criador
 
-[Iniciando com Redux](https://egghead.io/series/getting-started-with-redux) é um curso que consiste de 30 vídeos narrados por Dan Abramov, criador do Redux. Foi feito para complementar a parte "básica" da documentação, trazendo ideias adicionais sobre imutabilidade, testes, boas práticas com Redux, e usando Redux com React. **Este curso é free e sempre será.**
+[Iniciando com Redux](https://egghead.io/courses/fundamentals-of-redux-course-from-dan-abramov-bd5cc867) é um curso que consiste de 30 vídeos narrados por Dan Abramov, criador do Redux. Foi feito para complementar a parte "básica" da documentação, trazendo ideias adicionais sobre imutabilidade, testes, boas práticas com Redux, e usando Redux com React. **Este curso é free e sempre será.**
 
 Então, o que você está esperando?
 
